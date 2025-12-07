@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+  href: string;
+  style?: 'primary' | 'secondary' | 'outline';
+  size?: 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  href,
+  style = 'primary',
+  size = 'md',
+  class: className = '',
+  ...attrs
+} = Astro.props;
+
+const baseClasses =
+  'inline-block font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.03]';
+
+const sizeClasses = size === 'lg' ? 'px-8 py-3 text-lg' : 'px-6 py-2 text-base';
+
+let styleClasses = '';
+if (style === 'primary') {
+  styleClasses = 'bg-[--primary] text-white hover:bg-blue-800';
+} else if (style === 'secondary') {
+  styleClasses = 'bg-[--secondary] text-white hover:bg-orange-700';
+} else if (style === 'outline') {
+  styleClasses =
+    'bg-transparent text-[--primary] border-2 border-[--primary] hover:bg-[--primary] hover:text-white';
+}
+---
+
+<a
+  href={href}
+  class={`${baseClasses} ${sizeClasses} ${styleClasses} ${className}`}
+  {...attrs}
+>
+  <slot />
+</a>

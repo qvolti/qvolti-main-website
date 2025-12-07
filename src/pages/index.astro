@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/common/Footer.astro";
+import { Mail, Phone, MapPin } from "lucide-astro";
+import Hero from "../components/Hero.astro";
+import Oferta from "../components/Oferta.astro";
+import Proceso from "../components/Proceso.astro";
+import Nosotros from "../components/Nosotros.astro";
+import FormBurbujas from '../components/FormBurbujas.tsx';
+import FloatingContact from "../components/common/FloatingContact.astro";
+---
+
+<Layout theme="theme-neomoderno" title="QVOLTI">
+  <FloatingContact />
+
+  
+  <Navbar client:load />
+
+
+  <main class="snap-y snap-mandatory scroll-smooth">
+    <!-- HERO -->
+    <section class="snap-start fade-slide min-h-[calc(100vh-5rem)] pt-10">
+      <Hero/>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="snap-start fade-slide min-h-[calc(100vh-5rem)] pt-10 bg-(--bg)">
+      <Oferta />
+    </section>
+
+    <!-- PROCESO -->
+    <section class="snap-start fade-slide min-h-[calc(100vh-5rem)] pt-10">
+      <Proceso />
+    </section>
+
+    <!-- DIFERENCIADOR -->
+    <section class="snap-start fade-slide min-h-[calc(100vh-5rem)] pt-10 bg-(--bg)">
+      <Nosotros />
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="snap-start fade-slide min-h-[calc(100vh-5rem)] pt-10">
+     <FormBurbujas client:load />
+    </section>
+
+    <!-- FOOTER -->
+    <section class="snap-start min-h-[20vh] bg-(--bg) flex items-center justify-center fade-slide">
+      <Footer containerClass="bg-(--bg) py-10 border-t border-(--muted)/30">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 px-6 text-(--text) text-sm">
+          <div class="flex items-center gap-3 hover:scale-105 transition-transform">
+            <Mail class="w-4 h-4 text-(--primary)" />
+            <a href="mailto:rgomez@qvolti.com" class="hover:text-(--primary)">rgomez@qvolti.com</a>
+          </div>
+          <div class="flex items-center gap-3 hover:scale-105 transition-transform">
+            <Phone class="w-4 h-4 text-(--primary)" />
+            <span>+593 98 180 7574</span>
+          </div>
+          <div class="flex items-center gap-3 hover:scale-105 transition-transform">
+            <MapPin class="w-4 h-4 text-(--primary)" />
+            <span>Cumbayá, Ecuador</span>
+          </div>
+        </div>
+      </Footer>
+    </section>
+  </main>
+
+  <!-- ✨ Animación de aparición por scroll -->
+  <script is:client="load">
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.2 }
+    );
+    document.querySelectorAll(".fade-slide").forEach((section) => observer.observe(section));
+  </script>
+</Layout>

@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+  desc: string;
+  href: string;
+  img: string;
+}
+
+const { title, desc, href, img } = Astro.props;
+---
+
+<a
+  href={href}
+  class="relative group aspect-square overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-xl transition-all duration-500 ease-out"
+>
+  <!-- Imagen -->
+  <img
+    src={img}
+    alt={title}
+    class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:saturate-125"
+  />
+
+  <!-- Overlay oscuro global -->
+  <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-70 group-hover:opacity-60 transition-opacity duration-500"></div>
+
+  <!-- Fondo blur detrás del texto -->
+  <div class="absolute bottom-0 left-0 right-0 backdrop-blur-sm bg-black/35 p-5 transition-all duration-500 group-hover:bg-black/40">
+    <h2 class="text-xl font-semibold font-plusjakarta text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+      {title}
+    </h2>
+    <p class="text-sm text-gray-200 mt-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+      {desc}
+    </p>
+  </div>
+</a>

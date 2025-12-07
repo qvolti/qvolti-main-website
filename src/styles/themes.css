@@ -1,0 +1,42 @@
+
+.theme-neomoderno {
+  --font-body: "Readex Pro", sans-serif;
+  --font-header: "Plus Jakarta Sans", sans-serif;
+}
+
+/* 🌿 V2: GREEN ECO */
+.theme-green-eco {
+  --secondary: #42b883; 
+  --bg: #f9fdfb; 
+  --text: #36454f; 
+  --font-body: "Nunito", sans-serif;
+  --font-header: "Playfair Display", serif;
+}
+
+
+/* 🖤 V5: DARK PREMIUM+ */
+.theme-dark-premium {
+  --primary: #1e3a8a; /* Azul royal elegante */
+  --secondary: #f97316; /* Naranja cálido premium */
+
+  /* 🔹 Gradientes y acentos */
+  --gradient-primary: linear-gradient(135deg, #1e3a8a, #312e81);
+  --gradient-secondary: linear-gradient(135deg, #f97316, #fb923c);
+  --gradient-bg: radial-gradient(circle at 30% 30%, #1e3a8a20 0%, #111827 100%);
+
+  /* 🔸 Fondo y texto */
+  --bg: #0b0f1a; /* Más profundo que #111827 para un contraste más cinematográfico */
+  --bg-alt: #1a2234; /* Para secciones internas o cards */
+  --text: #f3f4f6;
+  --muted: #6b7280;
+  --muted-light: #9ca3af;
+
+  /* ✨ Glows y sombras suaves */
+  --glow-primary: 0 0 30px rgba(30, 58, 138, 0.4);
+  --glow-secondary: 0 0 25px rgba(249, 115, 22, 0.35);
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+  /* 🔠 Tipografías */
+  --font-body: "Inter", sans-serif;
+  --font-header: "Lora", serif;
+}

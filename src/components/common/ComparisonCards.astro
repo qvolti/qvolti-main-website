@@ -1,0 +1,100 @@
+---
+import { ShieldCheck, Factory } from "lucide-astro";
+
+const cards = [
+  {
+    title: "QVOLTI",
+    logo: "/logo.png",
+    image: "/card.png",
+    desc: "Energía inteligente, sostenible y con retorno real desde el primer día.",
+    back: "Nuestra ingeniería integra paneles solares, bombas de calor y software inteligente para garantizar ahorro real y soporte continuo.",
+    gradient: "from-(--primary)/10 to-(--secondary)/10",
+  },
+  {
+    title: "OTROS",
+    logo: "",
+    image: "/card1.png",
+    desc: "Soluciones genéricas, sin personalización ni soporte técnico continuo.",
+    back: "Sistemas estándar, sin integración tecnológica ni análisis de consumo para un ROI real.",
+    gradient: "from-gray-200 to-gray-300",
+  },
+];
+---
+
+<div class="relative w-full flex justify-center gap-10 py-24 bg-[--bg] flex-wrap">
+  {cards.map((card, index) => (
+    <div
+      class="card relative w-[320px] h-[500px] perspective cursor-pointer group"
+      data-index={index}
+    >
+      <!-- 🔘 Badge flotante mitad fuera -->
+      <div class="absolute -top-6 -left-6 w-20 h-20 rounded-full bg-gradient-to-br from-(--primary)/70 to-(--secondary)/70 flex items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.2)] z-20 border-4 border-white/80">
+        {card.logo ? (
+          <img src={card.logo} alt={card.title} class="w-12 aspect-square rounded-full" />
+        ) : (
+          <span class="text-gray-800 font-extrabold text-xs tracking-widest">OTROS</span>
+        )}
+      </div>
+
+      <!-- 🪞 Cuerpo de la carta -->
+      <div class="card-inner absolute inset-0 transition-transform duration-[800ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] transform-style-preserve-3d group-[.flipped]:rotate-y-180">
+
+        <!-- FRONT -->
+        <div class={`card-face front absolute inset-0 backface-hidden rounded-3xl overflow-hidden border border-(--muted)/30 shadow-[0_15px_40px_rgba(0,0,0,0.08)] bg-gradient-to-br ${card.gradient}`}>
+          <img
+            src={card.image}
+            alt={card.title}
+            class="absolute inset-0 w-full h-full object-cover filter grayscale brightness-[0.8]"
+          />
+          <div class="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center text-white z-10 px-8">
+            {card.title === "QVOLTI" ? (
+              <ShieldCheck class="w-10 h-10 mb-3 text-(--secondary)" />
+            ) : (
+              <Factory class="w-10 h-10 mb-3 text-gray-500" />
+            )}
+            <h3 class="text-2xl font-semibold mb-2">{card.title}</h3>
+            <p class="text-sm max-w-[85%] leading-relaxed">{card.desc}</p>
+          </div>
+        </div>
+
+        <!-- BACK -->
+        <div class={`card-face back absolute inset-0 rotate-y-180 backface-hidden rounded-3xl overflow-hidden border border-(--muted)/30 shadow-[0_15px_40px_rgba(0,0,0,0.1)] bg-gradient-to-br ${card.gradient}`}>
+          <img src={card.image} alt={card.title} class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 bg-gradient-to-t from-black/80 via-black/30 to-transparent backdrop-blur-md transition-all duration-500">
+            <p class="text-white text-sm px-8 py-6">{card.back}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .perspective {
+    perspective: 1200px;
+  }
+  .card-inner {
+    transform-style: preserve-3d;
+  }
+  .card-face {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .card {
+    transition: transform 0.4s ease;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+  }
+</style>
+
+<script is:client>
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+    });
+  });
+</script>

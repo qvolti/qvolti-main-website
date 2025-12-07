@@ -1,0 +1,159 @@
+---
+import { ShieldCheck, TrendingUp, Sparkles, Users, Award, Lightbulb, Quote } from "lucide-astro";
+import SectionArrow from "./common/SectionArrow.astro";
+---
+
+<section id="nosotros" class="relative w-full min-h-screen py-28 px-6 md:px-20 overflow-hidden">
+
+  <!-- 🔵 Imagen Corporativa de Fondo -->
+  <div class="absolute inset-0 -z-10">
+    <img 
+      src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      class="w-full h-full object-cover opacity-40"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-(--bg)/90 via-(--bg)/85 to-(--bg)/95"></div>
+  </div>
+
+  <!-- ⭐ TÍTULO -->
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-poppins font-semibold text-(--primary)">
+      ¿Por qué <span class="text-(--secondary)">QVOLTI</span>?
+    </h2>
+    <p class="text-(--text)/70 mt-2 text-sm md:text-base tracking-wide">
+      Ingeniería • Ética • Resultados Reales
+    </p>
+  </div>
+
+  <!-- 🔶 PANEL CORPORATIVO PRINCIPAL -->
+  <div class="max-w-6xl mx-auto bg-white/30 backdrop-blur-md border border-white/20 
+              rounded-3xl p-10 md:p-14 shadow-2xl space-y-16">
+
+    <!-- 🟦 BLOQUE 1: DIFERENCIADORES -->
+    <div>
+      <h3 class="text-2xl md:text-3xl font-semibold text-(--primary) mb-6">
+        Lo que nos diferencia
+      </h3>
+
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <ShieldCheck class="w-7 h-7 text-(--primary)" />
+          <p class="text-(--text)/90 leading-relaxed">
+            Más de una década diseñando soluciones térmicas, solares y microrredes para industrias y hospitales.
+          </p>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <Lightbulb class="w-7 h-7 text-(--secondary)" />
+          <p class="text-(--text)/90 leading-relaxed">
+            Soluciones <span class="font-semibold">a medida</span> basadas en consumo real, normativas y modelos avanzados.
+          </p>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <Users class="w-7 h-7 text-(--primary)" />
+          <p class="text-(--text)/90 leading-relaxed">
+            Ética, claridad y acompañamiento integral: estudio, diseño, implementación y mantenimiento.
+          </p>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <TrendingUp class="w-7 h-7 text-(--secondary)" />
+          <p class="text-(--text)/90 leading-relaxed">
+            En QVOLTI <span class="font-semibold">se cumple exactamente lo que se diseña</span>.  
+            Resultados reales, sin promesas vacías.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔵 SEPARADOR -->
+    <div class="w-full h-px bg-gradient-to-r from-(--primary)/20 via-(--secondary)/30 to-(--primary)/20"></div>
+
+ <!-- 🟧 BLOQUE 2 — TRAYECTORIA MEJORADA -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+  <!-- 📸 FOTO CORPORATIVA DEL EQUIPO -->
+  <div class="relative w-1/2 h-72 md:h-full rounded-2xl overflow-hidden shadow-xl lg:ml-28">
+    <img 
+      src="public/nosotros.png"
+      class="w-full h-full object-cover"
+    />
+
+    <!-- Overlay para mayor legibilidad -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30"></div>
+
+    <!-- Pie de foto opcional -->
+    <p class="absolute bottom-4 left-4 text-white/80 text-sm tracking-wide">
+      Equipo QVOLTI — Ingeniería & Desarrollo
+    </p>
+  </div>
+
+  <!-- 📝 TEXTO A LA DERECHA -->
+  <div>
+    <h3 class="text-2xl md:text-3xl font-semibold text-(--primary) mb-6">
+      Nuestra Trayectoria
+    </h3>
+
+    <div class="space-y-6">
+
+      <div class="flex items-start gap-4">
+        <Award class="w-7 h-7 text-(--primary)" />
+        <p class="text-(--text)/90 leading-relaxed">
+          Desarrollo de proyectos energéticos desde 2015 en el sector industrial y hotelero.
+        </p>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <Sparkles class="w-7 h-7 text-(--secondary)" />
+        <p class="text-(--text)/90 leading-relaxed">
+          Implementación de los primeros SGDA industriales bajo regulación oficial en 2018.
+        </p>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <Award class="w-7 h-7 text-(--secondary)" />
+        <p class="text-(--text)/90 leading-relaxed">
+          Precursores en granjas solares para autoabastecimiento industrial en la región.
+        </p>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <TrendingUp class="w-7 h-7 text-(--primary)" />
+        <p class="text-(--text)/90 leading-relaxed">
+          Ahorro real del 60% en sistemas térmicos industriales (caso piscina semiolímpica).
+        </p>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <TrendingUp class="w-7 h-7 text-(--secondary)" />
+        <p class="text-(--text)/90 leading-relaxed">
+          Planta solar industrial que redujo el costo energético de 3000 MWh/mes a 0 USD.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+    <!-- 🔵 SEPARADOR -->
+    <div class="w-full h-px bg-gradient-to-r from-(--primary)/20 via-(--secondary)/30 to-(--primary)/20"></div>
+
+    <!-- 🟣 BLOQUE 3: CITA -->
+    <div class="relative p-8 rounded-2xl bg-white/40 backdrop-blur-lg border border-white/20 shadow-xl">
+
+      <Quote class="w-10 h-10 text-(--secondary) mb-4" />
+
+      <blockquote class="text-(--text)/90 italic leading-relaxed">
+        “A través del conocimiento en aerotermía, solar térmico, solar fotovoltaico, mini eólico, almacenamiento y microrredes,
+        alcanzamos soluciones rentables, eficaces y realizables para transformar tu generación de calor y energía.”
+      </blockquote>
+
+      <p class="mt-6 font-semibold text-lg text-(--primary)">Roberto — Fundador</p>
+    </div>
+
+  </div>
+
+    <SectionArrow sectionTag="#contacto" />
+
+</section>

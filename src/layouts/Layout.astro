@@ -1,0 +1,24 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  theme?: string;
+  title?: string;
+}
+
+const { theme = "theme-neomoderno", title = "QVOLTI" } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body
+    class={`min-h-screen transition-colors duration-500 ${theme}`}
+    style="background-color: var(--bg); color: var(--text); font-family: var(--font-body);"
+  >
+    <slot />
+  </body>
+</html>

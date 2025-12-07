@@ -1,0 +1,46 @@
+---
+import { MapPin, Mail, Phone } from "lucide-astro";
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-(--bg) border-t border-(--muted)/40 py-14 w-full">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 items-center">
+
+    <!-- LOGO -->
+    <div class="flex justify-center md:justify-start">
+      <img src="/logo.png" alt="logo" class="w-16 opacity-90" />
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="text-center text-sm text-(--text)/70 space-y-2">
+
+      <p class="flex items-center justify-center gap-2">
+        <MapPin class="w-4 h-4 text-(--primary)" />
+        Cumbayá, Ecuador
+      </p>
+
+      <p class="flex items-center justify-center gap-2">
+        <Mail class="w-4 h-4 text-(--primary)" />
+        info@qvolti.com
+      </p>
+
+      <p class="flex items-center justify-center gap-2">
+        <Phone class="w-4 h-4 text-(--primary)" />
+        +593 98 180 7574
+      </p>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="text-xs text-(--muted) md:text-right space-y-1">
+      <p>&copy; {year} QVOLTI</p>
+      <p>
+        Diseño por 
+        <a href="https://daviddevlopez.com" class="text-(--primary)" target="_blank">
+          David López
+        </a>
+      </p>
+    </div>
+
+  </div>
+</footer>
