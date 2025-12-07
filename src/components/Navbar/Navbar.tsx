@@ -37,7 +37,7 @@ export default function Navbar() {
         <NavbarMobile links={links} />
         {/* LOGO */}
         <a href="/" className="flex items-center gap-3 text-3xl font-bold text-(--primary) ml-4">
-          <img src="/assets/logo.png" alt="QVOLTI Logo" className="h-24 w-auto" />
+          <img src="/logo.png" alt="QVOLTI Logo" className="h-24 w-auto" />
         </a>
         </div>
 
