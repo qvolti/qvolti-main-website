@@ -1,20 +1,51 @@
 ---
 import "../styles/global.css";
+import SEO from "../components/SEO.astro";
 
 interface Props {
   theme?: string;
   title?: string;
 }
 
-const { theme = "theme-neomoderno", title = "QVOLTI" } = Astro.props;
+const { theme = "theme-neomoderno", title = "QVOLTI — Ingeniería Energética Profesional" } = Astro.props;
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+
+    <SEO title={title} />
+
+  
+    <link rel="canonical" href="https://qvolti.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "QVOLTI Energía",
+        "image": "https://qvolti.com/og-qvolti.png",
+        "url": "https://qvolti.com",
+        "description": "Soluciones solares, aerotermia e ingeniería energética profesional.",
+        "email": "info@qvolti.com",
+        "telephone": "+593981807574",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cumbayá",
+          "addressRegion": "Ecuador",
+          "addressCountry": "EC"
+        }
+      }
+    </script>
   </head>
+
   <body
     class={`min-h-screen transition-colors duration-500 ${theme}`}
     style="background-color: var(--bg); color: var(--text); font-family: var(--font-body);"

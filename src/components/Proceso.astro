@@ -1,210 +1,132 @@
 ---
 import { SearchCheck, Cpu, Wrench, LineChart } from "lucide-astro";
 import SectionArrow from "./common/SectionArrow.astro";
+import { Image } from "astro:assets";
+
+import process1 from "../assets/process-1.png";
+import process2 from "../assets/process-2.png";
+import process3 from "../assets/process-3.png";
+import process4 from "../assets/process-4.png";
 
 const steps = [
   {
     num: "01.",
     title: "Estudio Técnico",
     icon: SearchCheck,
-    img: "/public/process-1.png",
-    desc: "Recolectamos data con drones, cámaras térmicas, medidores ultrasónicos, analizador de redes e IA para entender tu consumo real.",
+    img: process1,
+    alt: "Estudio técnico energético",
+    desc: "Recolectamos data con drones, cámaras térmicas y analizadores.",
   },
   {
     num: "02.",
     title: "Diseño a Medida",
     icon: Cpu,
-    img: "/public/process-2.png",
-    desc: "Modelamos la solución usando Helioscope, PVSyst y diseño estructural para garantizar eficiencia y compatibilidad técnica.",
+    img: process2,
+    alt: "Diseño energético",
+    desc: "Helioscope, PVSyst y modelado estructural para máxima eficiencia.",
   },
   {
     num: "03.",
     title: "Implementación",
     icon: Wrench,
-    img: "/public/process-3.png",
-    desc: "Instalamos y coordinamos el sistema sin detener tus operaciones. Procesos limpios, precisos y seguros.",
+    img: process3,
+    alt: "Instalación energética",
+    desc: "Instalamos sin detener operaciones. Preciso y seguro.",
   },
   {
     num: "04.",
     title: "Monitoreo & Beneficio",
     icon: LineChart,
-    img: "/public/process-4.png",
-    desc: "Monitoreo inteligente con IA y apps de inversores para garantizar ahorro real y continuidad operativa.",
+    img: process4,
+    alt: "Monitoreo energético",
+    desc: "IA + apps para asegurar ahorro real y continuidad.",
   },
 ];
 ---
+<section id="proceso" class="px-6 md:px-16 lg:px-24 py-20 bg-(--bg)">
 
-<section id="proceso" class="relative min-h-screen w-full bg-(--bg) px-6 md:px-16 lg:px-24 py-20">
-
-  <!-- ⭐ TITULO SUPERIOR -->
+  <!-- TÍTULO -->
   <div class="text-center mb-14">
-    <h2 class="text-4xl md:text-5xl font-semibold text-(--primary)">
-      Nuestro Proceso
-    </h2>
+    <h2 class="text-4xl md:text-5xl font-semibold text-(--primary)">Nuestro Proceso</h2>
     <p class="text-(--text)/70 mt-2 tracking-wide text-sm md:text-base">
       Ingeniería • Datos • Precisión
     </p>
   </div>
 
-  <!-- ⭐ DESKTOP BENTO GRID -->
-  <div 
-    class="max-w-6xl mx-auto relative 
-           hidden lg:grid h-[65vh] grid-cols-12 grid-rows-6 gap-6"
-  >
+  <!-- GRID PRINCIPAL -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto">
 
-    <!-- 🟦 ESTUDIO -->
-    <div class="col-span-5 row-span-3 rounded-3xl overflow-hidden shadow-xl relative group">
-      <img src={steps[0].img} class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700" />
-      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500"></div>
-
-      <div class="absolute bottom-6 left-6 text-white">
-        <steps[0].icon class="w-8 h-8 mb-2 opacity-80" />
-        <h3 class="text-xl font-semibold tracking-wide p-2 bg-amber-50/50 rounded-lg">
-          <span class="text-(--secondary) font-bold mr-1">{steps[0].num}</span>
-          {steps[0].title}
-        </h3>
-        <p class="text-sm md:text-base leading-relaxed max-w-sm opacity-90">
-          {steps[0].desc}
-        </p>
-      </div>
-    </div>
-
-    <!-- 🔵 Conexión Horizontal -->
-    <div class="col-start-6 col-end-8 row-start-2 row-end-3 flex items-center">
-      <div class="w-full h-[2px] bg-gradient-to-r from-(--primary)/20 via-(--secondary)/40 to-(--primary)/20 
-                  relative overflow-hidden rounded-full">
-        <div class="absolute inset-0 animate-flow-line bg-gradient-to-r 
-                    from-transparent via-(--secondary) to-transparent opacity-60"></div>
-        <span class="absolute right-0 -top-[3px] w-3 h-3 rotate-45 border-t-2 border-r-2 border-(--secondary)"></span>
-      </div>
-    </div>
-
-    <!-- 🟧 DISEÑO -->
-    <div class="col-start-8 col-end-13 row-span-2 rounded-3xl overflow-hidden shadow-xl relative group">
-      <img src={steps[1].img} class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700" />
-      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500"></div>
+    <!-- 01 IZQUIERDA -->
+    <div class="lg:col-span-4 h-80 lg:h-full relative rounded-3xl overflow-hidden shadow-xl group">
+      <Image
+        src={steps[0].img}
+        alt={steps[0].alt}
+        format="webp"
+        widths={[600, 1200]}
+        class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 duration-700"
+      />
+      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 duration-300"></div>
 
       <div class="absolute bottom-6 left-6 text-white">
-        <steps[1].icon class="w-7 h-7 mb-2 opacity-80" />
-        <h3 class="text-lg font-semibold p-2 bg-amber-50/50 rounded-lg">
-          <span class="text-(--secondary) font-bold mr-1">{steps[1].num}</span>
-          {steps[1].title}
+        <steps[0].icon class="w-5 h-5 mb-2 opacity-90" />
+        <h3 class="text-lg font-semibold bg-white/40 text-black p-2 rounded-lg w-fit">
+          <span class="text-(--secondary) font-bold mr-1">{steps[0].num}</span>{steps[0].title}
         </h3>
-        <p class="text-sm md:text-base leading-relaxed max-w-sm opacity-90">
-          {steps[1].desc}
-        </p>
+        <p class="text-sm opacity-90 max-w-xs">{steps[0].desc}</p>
       </div>
     </div>
 
-    <!-- 🔵 Conexión Vertical -->
-    <div class="col-start-10 col-end-11 row-start-3 row-end-5 flex justify-center">
-      <div class="h-full w-[2px] bg-gradient-to-b from-(--primary)/20 via-(--secondary)/40 to-(--primary)/20 
-                  relative overflow-hidden rounded-full">
-        <div class="absolute inset-0 animate-flow-vertical bg-gradient-to-b 
-                    from-transparent via-(--secondary) to-transparent opacity-60"></div>
-        <span class="absolute bottom-0 -left-[3px] w-3 h-3 -rotate-45 border-b-2 border-r-2 border-(--secondary)"></span>
-      </div>
-    </div>
+    <!-- COLUMNA DERECHA (02 arriba, 03 y 04 debajo) -->
+    <div class="lg:col-span-8 grid grid-cols-1 gap-6">
 
-    <!-- 🟨 IMPLEMENTACIÓN -->
-    <div class="col-span-4 row-start-4 row-span-3 rounded-3xl overflow-hidden shadow-xl relative group">
-      <img src={steps[2].img} class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700" />
-      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500"></div>
+      <!-- 02 -->
+      <div class="h-80 relative rounded-3xl overflow-hidden shadow-xl group">
+        <Image
+          src={steps[1].img}
+          alt={steps[1].alt}
+          format="webp"
+          widths={[600, 1400]}
+          class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 duration-700"
+        />
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 duration-300"></div>
 
-      <div class="absolute bottom-6 left-6 text-white">
-        <steps[2].icon class="w-7 h-7 mb-2 opacity-80" />
-        <h3 class="text-lg font-semibold p-2 bg-amber-50/50 rounded-lg w-[55%]">
-          <span class="text-(--secondary) font-bold mr-1">{steps[2].num}</span>
-          {steps[2].title}
-        </h3>
-        <p class="text-sm md:text-base leading-relaxed max-w-sm opacity-90">
-          {steps[2].desc}
-        </p>
-      </div>
-    </div>
-
-    <!-- 🔵 Conexión Horizontal hacia Beneficio -->
-    <div class="col-start-5 col-end-7 row-start-5 row-end-6 flex items-center">
-      <div class="w-full h-[2px] bg-gradient-to-r from-(--primary)/20 via-(--secondary)/40 to-(--primary)/20 
-                  relative overflow-hidden rounded-full">
-        <div class="absolute inset-0 animate-flow-line bg-gradient-to-r 
-                    from-transparent via-(--secondary) to-transparent opacity-60"></div>
-        <span class="absolute right-0 -top-[3px] w-3 h-3 rotate-45 border-t-2 border-r-2 border-(--secondary)"></span>
-      </div>
-    </div>
-
-    <!-- 🟩 MONITOREO & BENEFICIO -->
-    <div class="col-start-7 col-end-13 row-start-4 row-span-3 rounded-3xl overflow-hidden shadow-xl relative group">
-      <img src={steps[3].img} class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700" />
-      <div class="absolute inset-0 bg-black/35 group-hover:bg-black/25 transition-all duration-500"></div>
-
-      <div class="absolute bottom-6 left-6 text-white">
-        <steps[3].icon class="w-8 h-8 mb-2 opacity-80" />
-        <h3 class="text-xl font-semibold drop-shadow-2xl p-2 bg-amber-50/50 rounded-lg">
-          <span class="text-(--secondary) font-bold mr-1">{steps[3].num}</span>
-          {steps[3].title}
-        </h3>
-        <p class="text-sm md:text-base leading-relaxed max-w-sm opacity-90">
-          {steps[3].desc}
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ⭐ MOBILE LAYOUT -->
-  <div class="lg:hidden flex flex-col gap-8 px-3 mt-10">
-
-    {steps.map(({ num, title, desc, img, icon: Icon }) => (
-      <div class="rounded-2xl overflow-hidden shadow-lg bg-white/90 backdrop-blur-sm">
-
-        <!-- Imagen -->
-        <div class="h-52 w-full overflow-hidden">
-          <img 
-            src={img} 
-            class="w-full h-full object-cover transition-all duration-700 hover:scale-105" 
-          />
-        </div>
-
-        <!-- Texto -->
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-2">
-            <Icon class="w-6 h-6 text-(--primary)" />
-            <span class="text-(--secondary) font-bold">{num}</span>
-          </div>
-
-          <h3 class="text-lg font-semibold text-(--primary) mb-2">
-            {title}
+        <div class="absolute bottom-6 left-6 text-white">
+          <steps[1].icon class="w-5 h-5 mb-2 opacity-90" />
+          <h3 class="text-lg font-semibold bg-white/40 text-black p-2 rounded-lg w-fit">
+            <span class="text-(--secondary) font-bold mr-1">{steps[1].num}</span>{steps[1].title}
           </h3>
-
-          <p class="text-(--text)/80 text-sm leading-relaxed">
-            {desc}
-          </p>
+          <p class="text-sm opacity-90 max-w-xs">{steps[1].desc}</p>
         </div>
+      </div>
+
+      <!-- FILA 03 + 04 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        {steps.slice(2).map((step) => (
+          <div class="h-80 relative rounded-3xl overflow-hidden shadow-xl group">
+            <Image
+              src={step.img}
+              alt={step.alt}
+              format="webp"
+              widths={[600, 1200]}
+              class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 duration-700"
+            />
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 duration-300"></div>
+
+            <div class="absolute bottom-6 left-6 text-white">
+              <step.icon class="w-5 h-5 mb-2 opacity-90" />
+              <h3 class="text-lg font-semibold bg-white/40 text-black p-2 rounded-lg w-fit">
+                <span class="text-(--secondary) font-bold mr-1">{step.num}</span>{step.title}
+              </h3>
+              <p class="text-sm opacity-90 max-w-xs">{step.desc}</p>
+            </div>
+          </div>
+        ))}
 
       </div>
-    ))}
+    </div>
 
   </div>
 
-  <!-- ⭐ FLECHA ABAJO -->
-  <SectionArrow targetId="nosotros" />
-
+  <SectionArrow sectionTag="nosotros" />
 </section>
-
-<style>
-  @keyframes flowLine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-  @keyframes flowVertical {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-  }
-  .animate-flow-line {
-    animation: flowLine 3s linear infinite;
-  }
-  .animate-flow-vertical {
-    animation: flowVertical 3s linear infinite;
-  }
-</style>

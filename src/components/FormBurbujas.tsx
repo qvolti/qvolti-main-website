@@ -102,49 +102,82 @@ ${form.mensaje}
             <p className="text-(--text)/70 mt-3">Completa los pasos y diseñaremos una solución personalizada.</p>
           </div>
 
-          {/* TIPO */}
+          {/* TIPO DE PROYECTO */}
+      
           <div>
             <label className="block text-lg font-semibold mb-4 text-(--primary)">Tipo de proyecto</label>
+
             <div className="flex flex-wrap gap-3">
-              {opcionesProyecto.map((opt) => (
-                <button
-                  key={opt}
-                  type="button"
-                  onClick={() => handleChange("tipoProyecto", opt)}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition
-                    ${
-                      form.tipoProyecto === opt
-                        ? "bg-(--primary) text-white shadow-lg scale-105"
-                        : "bg-white border border-(--muted)/30 hover:scale-105"
-                    }`}
-                >
-                  {opt}
-                </button>
-              ))}
+              {opcionesProyecto.map((opt) => {
+                const selected = form.tipoProyecto === opt;
+
+                return (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => handleChange("tipoProyecto", opt)}
+                    className={`
+                      px-5 py-2 rounded-full text-sm font-medium cursor-pointer
+                      transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
+                      border border-(--muted)/30 backdrop-blur-sm
+
+                      ${
+                        selected
+                          ? "bg-(--primary) text-white shadow-xl scale-[1.03] animate-[pulse_2s_ease-in-out_infinite]"
+                          : "bg-white text-(--text)"
+                      }
+
+                      ${
+                        !selected &&
+                        "hover:bg-gradient-to-r hover:from-(--primary)/60 hover:via-(--secondary)/60 hover:to-(--primary)/60 hover:text-white hover:shadow-xl hover:scale-[1.07]"
+                      }
+                    `}
+                  >
+                    {opt}
+                  </button>
+                );
+              })}
             </div>
           </div>
+
 
           {/* PRESUPUESTO */}
           <div>
             <label className="block text-lg font-semibold mb-4 text-(--primary)">Presupuesto estimado</label>
+
             <div className="flex flex-wrap gap-3">
-              {rangosPresupuesto.map((opt) => (
-                <button
-                  key={opt}
-                  type="button"
-                  onClick={() => handleChange("presupuesto", opt)}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition
-                    ${
-                      form.presupuesto === opt
-                        ? "bg-(--secondary) text-white shadow-lg scale-105"
-                        : "bg-white border border-(--muted)/30 hover:scale-105"
-                    }`}
-                >
-                  {opt}
-                </button>
-              ))}
+              {rangosPresupuesto.map((opt) => {
+                const selected = form.presupuesto === opt;
+
+                return (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => handleChange("presupuesto", opt)}
+                    className={`
+                      px-5 py-2 rounded-full text-sm font-medium cursor-pointer
+                      transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
+                      border border-(--muted)/30 backdrop-blur-sm
+
+                      ${
+                        selected
+                          ? "bg-(--secondary) text-white shadow-xl scale-[1.03] animate-[pulse_2s_ease-in-out_infinite]"
+                          : "bg-white text-(--text)"
+                      }
+
+                      ${
+                        !selected &&
+                        "hover:bg-gradient-to-r hover:from-(--primary)/60 hover:via-(--secondary)/60 hover:to-(--primary)/60 hover:text-white hover:shadow-xl hover:scale-[1.07]"
+                      }
+                    `}
+                  >
+                    {opt}
+                  </button>
+                );
+              })}
             </div>
           </div>
+
 
           {/* DATOS */}
           <div className="grid md:grid-cols-2 gap-6">
@@ -174,10 +207,10 @@ ${form.mensaje}
           {/* BOTÓN */}
           <button
             disabled={loading}
-            className="px-10 py-3 rounded-full bg-gradient-to-r from-(--primary) to-(--secondary) 
-                       text-white font-semibold shadow-lg hover:scale-105 transition"
+            className="group px-10 py-3 rounded-full bg-(--primary)
+                       text-white font-semibold shadow-lg  hover:bg-(--secondary)/80 cursor-pointer transition duration-500"
           >
-            {loading ? "Enviando..." : <>Enviar <ArrowRight className="inline w-4 h-4" /></>}
+            {loading ? "Enviando..." : <>Enviar <ArrowRight className="inline w-4 h-4 group-hover:scale-125" /></>}
           </button>
         </form>
 
@@ -207,9 +240,12 @@ function Modal({ title, text, onClose }: any) {
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center backdrop-blur-sm z-50">
       <div className="bg-white rounded-2xl p-8 max-w-sm w-full flex items-center justify-center flex-col shadow-xl">
         <img src="/public/logo.png" alt="logo" className="w-18 aspect-square" />
-        <h3 className="text-2xl font-semibold text-(--primary)font-bold">{title}</h3>
+        <h3 className="text-2xl font-semibold text-(--primary) font-bold">{title}</h3>
         <p className="text-(--text)/70 mt-3 italic">{text}</p>
-        <button onClick={onClose} className="mt-6 px-6 py-2 bg-(--primary) text-white rounded-full shadow hover:bg-(--secondary)">
+        <button 
+          onClick={onClose} 
+          className="mt-6 px-6 py-2 bg-(--primary) text-white rounded-full shadow hover:bg-(--secondary)"
+        >
           Cerrar
         </button>
       </div>

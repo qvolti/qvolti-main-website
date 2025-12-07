@@ -6,28 +6,39 @@ interface Link {
 
 export default function NavbarDesktop({ links }: { links: Link[] }) {
   return (
-    <nav className="hidden lg:flex flex-wrap justify-end items-center gap-8 w-full">
+   
+      <ul className="hidden lg:flex flex-wrap justify-end items-center gap-8 w-full">
       {links.map((link) => (
-        <li key={link.href} className="relative group overflow-hidden px-4 py-2 rounded-lg">
-          <a
-            href={link.href}
-            className="relative z-10 text-(--text) text-lg font-semibold transition-all duration-500 group-hover:text-(--primary) rounded-lg"
-          >
-            {link.name}
-          </a>
+    <li key={link.href} className="relative group px-4 py-2 rounded-lg">
+        <a
+          href={link.href}
+          className="relative z-10 text-(--text) text-lg font-semibold transition-all duration-300 group-hover:text-(--primary)"
+        >
+          {link.name}
+        </a>
 
+        <span
+          className="
+            pointer-events-none
+            absolute left-0 bottom-0 h-[2px] w-full
+            overflow-hidden 
+            scale-x-0 group-hover:scale-x-100 origin-left
+            transition-transform duration-500 ease-out
+          "
+        >
           <span
             className="
-              absolute inset-0 bg-gradient-to-r 
-              from-(--primary)/10 via-(--secondary)/30 to-(--primary)/10
-              opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-105
-              group-hover:blur-[4px] 
-              transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]
-              translate-x-[-110%] group-hover:translate-x-0 rounded-lg
+              absolute inset-0 w-full h-full
+              bg-gradient-to-r from-(--primary) via-(--secondary) to-(--primary)
+              animate-nav-flow
             "
           ></span>
-        </li>
+        </span>
+    </li>
+    
+
       ))}
-    </nav>
+      </ul>
+    
   );
 }

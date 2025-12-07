@@ -1,0 +1,30 @@
+---
+const {
+  title = "QVOLTI — Ingeniería Energética & Soluciones Solares",
+  description = "Proyectos solares, aerotermia e ingeniería energética de precisión para industrias y residencias. Ahorra energía con diseño, datos y tecnología.",
+  image = "https://qvolti.com/og-qvolti.png",
+  url = "https://qvolti.com"
+} = Astro.props;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={image} />
+<meta property="og:url" content={url} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<!-- UX / Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Color -->
+<meta name="theme-color" content="#0B1E2F" />
