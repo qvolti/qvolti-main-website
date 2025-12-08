@@ -82,3 +82,14 @@
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
 }
+
+/* Ocultar scrollbar en Chrome, Edge y Safari */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Ocultar scrollbar en Firefox */
+html {
+  scrollbar-width: none; /* Firefox */
+}

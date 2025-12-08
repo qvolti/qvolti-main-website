@@ -4,15 +4,17 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="bg-(--bg) border-t border-(--muted)/40 py-14 w-full">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 items-center">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
 
     <!-- LOGO -->
-    <div class="flex justify-center md:justify-start">
+    <div class="hidden flex justify-center md:justify-start lg:block">
       <img src="/logo.png" alt="logo" class="w-16 opacity-90" />
     </div>
 
     <!-- CONTACTO -->
-    <div class="text-center text-sm text-(--text)/70 space-y-2">
+    <div class="grid grid-cols-2 grid-rows-2 lg:grid-cols-1 justify-items-center text-sm text-(--text)/70 space-y-2">
+
+      <img src="/logo.png" alt="logo" class="w-24 opacity-90 lg:hidden block" />
 
       <p class="flex items-center justify-center gap-2">
         <MapPin class="w-4 h-4 text-(--primary)" />
@@ -32,14 +34,17 @@ const year = new Date().getFullYear();
     </div>
 
     <!-- COPYRIGHT -->
-    <div class="text-xs text-(--muted) md:text-right space-y-1">
-      <p>&copy; {year} QVOLTI</p>
-      <p>
-        Diseño por 
-        <a href="https://daviddevlopez.com" class="text-(--primary)" target="_blank">
-          David López
-        </a>
-      </p>
+    <div class="text-xs text-(--muted) md:text-right space-y-1 flex items-center justify-center gap-6">
+      
+      <div class="flex items-center justify-start flex-col">
+        <p>&copy; {year} QVOLTI</p>
+        <p>
+          Diseño por 
+          <a href="https://daviddevlopez.com" class="text-(--primary)" target="_blank">
+            David López
+          </a>
+        </p>
+      </div>
     </div>
 
   </div>

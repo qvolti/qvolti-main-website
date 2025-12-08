@@ -43,7 +43,7 @@ const images = [
           <img
             src={img.src}
             alt={img.alt}
-            class="w-full h-full object-cover brightness-[0.75] saturate-110 contrast-[1.15]"
+            class="w-full h-full object-cover brightness-[0.90] saturate-110 contrast-[1.15]"
           />
         ) : (
           <!-- 🔥 PNG/JPG optimizado automáticamente a WebP -->
@@ -58,7 +58,7 @@ const images = [
         )}
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/35 to-black/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/35 to-black/10"></div>
       </div>
     ))}
   </div>
@@ -106,7 +106,7 @@ const images = [
   <!-- ========================== -->
   <!-- ⭐ DOTS ⭐ -->
   <!-- ========================== -->
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+  <div class="absolute bottom-16 lg:bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30">
     {images.map((_, i) => (
       <button
         class="dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition"
