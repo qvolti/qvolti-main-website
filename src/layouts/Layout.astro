@@ -5,9 +5,18 @@ import SEO from "../components/SEO.astro";
 interface Props {
   theme?: string;
   title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
 }
 
-const { theme = "theme-neomoderno", title = "QVOLTI — Ingeniería Energética Profesional" } = Astro.props;
+const {
+  theme = "theme-neomoderno",
+  title = "QVOLTI — Ingeniería Energética Profesional",
+  description = "Soluciones solares, aerotermia e ingeniería energética profesional.",
+  image = "https://qvolti.com/og-qvolti.png",
+  url = "https://qvolti.com",
+} = Astro.props;
 ---
 
 <html lang="es">
@@ -15,17 +24,25 @@ const { theme = "theme-neomoderno", title = "QVOLTI — Ingeniería Energética 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <SEO title={title} />
+    <!-- SEO + OG + Twitter -->
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      url={url}
+    />
 
-  
-    <link rel="canonical" href="https://qvolti.com" />
+    <!-- Canonical -->
+    <link rel="canonical" href={url} />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
+    <!-- Icon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  
 
+    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -47,8 +64,19 @@ const { theme = "theme-neomoderno", title = "QVOLTI — Ingeniería Energética 
   </head>
 
   <body
-    class={`min-h-screen transition-colors duration-500 ${theme}`}
-    style="background-color: var(--bg); color: var(--text); font-family: var(--font-body);"
+    class={`
+      min-h-screen 
+      overflow-x-hidden
+      transition-colors 
+      duration-500 
+      scroll-smooth
+      ${theme}
+    `}
+    style="
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+    "
   >
     <slot />
   </body>

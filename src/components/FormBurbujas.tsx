@@ -234,21 +234,37 @@ ${form.mensaje}
     </>
   );
 }
-
 function Modal({ title, text, onClose }: any) {
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center backdrop-blur-sm z-50">
-      <div className="bg-white rounded-2xl p-8 max-w-sm w-full flex items-center justify-center flex-col shadow-xl">
-        <img src="/public/logo.png" alt="logo" className="w-18 aspect-square" />
-        <h3 className="text-2xl font-semibold text-(--primary) font-bold">{title}</h3>
-        <p className="text-(--text)/70 mt-3 italic">{text}</p>
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50">
+      
+      {/* Contenedor absoluto centrado inequívocamente */}
+      <div className="
+        absolute top-1/2 left-1/2 
+        -translate-x-1/2 -translate-y-1/2
+        bg-white rounded-2xl p-8 max-w-sm w-[90%]
+        flex flex-col items-center justify-center shadow-xl
+      ">
+        
+        <img src="/logo.png" alt="logo" className="w-18 aspect-square" />
+
+        <h3 className="text-2xl font-semibold text-(--primary) font-bold">
+          {title}
+        </h3>
+
+        <p className="text-(--text)/70 mt-3 italic text-center">
+          {text}
+        </p>
+
         <button 
-          onClick={onClose} 
+          onClick={onClose}
           className="mt-6 px-6 py-2 bg-(--primary) text-white rounded-full shadow hover:bg-(--secondary)"
         >
           Cerrar
         </button>
+
       </div>
+
     </div>
   );
 }
