@@ -97,7 +97,7 @@ ${form.mensaje}
           {/* TITULO */}
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-(--primary)">
-              Cuéntanos sobre tu <span className="text-(--secondary)">proyecto</span>
+              Cuéntanos sobre  <span className="text-(--secondary)">tu proyecto</span>
             </h2>
             <p className="text-(--text)/70 mt-3">Completa los pasos y diseñaremos una solución personalizada.</p>
           </div>
